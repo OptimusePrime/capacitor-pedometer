@@ -7,7 +7,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-
 import android.os.Build;
 import android.util.Log;
 import androidx.core.app.ActivityCompat;
@@ -16,13 +15,12 @@ import com.getcapacitor.*;
 import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
 
-@CapacitorPlugin(name = "Pedometer", permissions = {
-        @Permission(
-                strings = { Manifest.permission.ACTIVITY_RECOGNITION },
-                alias = "activity_recognition"
-        )
-})
+@CapacitorPlugin(
+    name = "Pedometer",
+    permissions = { @Permission(strings = { Manifest.permission.ACTIVITY_RECOGNITION }, alias = "activity_recognition") }
+)
 public class PedometerPlugin extends Plugin implements SensorEventListener {
+
     private SensorManager sensorManager;
     private Sensor stepCounter;
     private int initialSteps = -1;
@@ -93,43 +91,42 @@ public class PedometerPlugin extends Plugin implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // Not used
     }
+    // private static final int ACTIVITY_RECOGNITION_REQUEST_CODE = 100;
 
-    private static final int ACTIVITY_RECOGNITION_REQUEST_CODE = 100;
-
-//    @PluginMethod
-//    // Check if permission is granted
-//    public void checkPermission(PluginCall call) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//            boolean b = ContextCompat.checkSelfPermission(
-//                    this.getActivity(),
-//                    Manifest.permission.ACTIVITY_RECOGNITION
-//            ) == PackageManager.PERMISSION_GRANTED;
-//        }
-//
-//        call.resolve(); // Permission not required for Android 9 and below
-//    }
-//
-//    @PluginMethod
-//    // Request permission
-//    public void requestPermission(PluginCall call) {
-////        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-////            if (ContextCompat.checkSelfPermission(this.getActivity(),
-////                    Manifest.permission.ACTIVITY_RECOGNITION)
-////                    != PackageManager.PERMISSION_GRANTED) {
-////
-////
-////                ActivityCompat.requestPermissions(this.getActivity(),
-////                        new String[]{Manifest.permission.ACTIVITY_RECOGNITION},
-////                        ACTIVITY_RECOGNITION_REQUEST_CODE);
-////
-////            }
-////        }
-////        call.resolve();
-//        if (getPermissionState("activity_recognition") == PermissionState.GRANTED) {
-//            call.resolve();
-//        } else {
-//            requestPermissionForAlias("activity_recognition", call, "requestPermissionCallback");
-//        }
-//    }
+    //    @PluginMethod
+    //    // Check if permission is granted
+    //    public void checkPermission(PluginCall call) {
+    //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+    //            boolean b = ContextCompat.checkSelfPermission(
+    //                    this.getActivity(),
+    //                    Manifest.permission.ACTIVITY_RECOGNITION
+    //            ) == PackageManager.PERMISSION_GRANTED;
+    //        }
+    //
+    //        call.resolve(); // Permission not required for Android 9 and below
+    //    }
+    //
+    //    @PluginMethod
+    //    // Request permission
+    //    public void requestPermission(PluginCall call) {
+    ////        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+    ////            if (ContextCompat.checkSelfPermission(this.getActivity(),
+    ////                    Manifest.permission.ACTIVITY_RECOGNITION)
+    ////                    != PackageManager.PERMISSION_GRANTED) {
+    ////
+    ////
+    ////                ActivityCompat.requestPermissions(this.getActivity(),
+    ////                        new String[]{Manifest.permission.ACTIVITY_RECOGNITION},
+    ////                        ACTIVITY_RECOGNITION_REQUEST_CODE);
+    ////
+    ////            }
+    ////        }
+    ////        call.resolve();
+    //        if (getPermissionState("activity_recognition") == PermissionState.GRANTED) {
+    //            call.resolve();
+    //        } else {
+    //            requestPermissionForAlias("activity_recognition", call, "requestPermissionCallback");
+    //        }
+    //    }
 
 }
