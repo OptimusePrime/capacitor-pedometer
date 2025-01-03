@@ -1,3 +1,10 @@
+import type { PermissionState } from "@capacitor/core";
+
 export interface PedometerPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  start(): Promise<void>;
+  stop(): Promise<void>;
+  isAvailable(): Promise<{ available: boolean }>;
+  getStepCount(): Promise<{ steps: number }>;
+  checkPermissions(): Promise<PermissionState>;
+  requestPermissions(): Promise<void>;
 }

@@ -13,25 +13,84 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+* [`start()`](#start)
+* [`stop()`](#stop)
+* [`isAvailable()`](#isavailable)
+* [`getStepCount()`](#getstepcount)
+* [`checkPermissions()`](#checkpermissions)
+* [`requestPermissions()`](#requestpermissions)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
+### start()
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+start() => Promise<void>
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
+--------------------
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+### stop()
+
+```typescript
+stop() => Promise<void>
+```
 
 --------------------
+
+
+### isAvailable()
+
+```typescript
+isAvailable() => Promise<{ available: boolean; }>
+```
+
+**Returns:** <code>Promise&lt;{ available: boolean; }&gt;</code>
+
+--------------------
+
+
+### getStepCount()
+
+```typescript
+getStepCount() => Promise<{ steps: number; }>
+```
+
+**Returns:** <code>Promise&lt;{ steps: number; }&gt;</code>
+
+--------------------
+
+
+### checkPermissions()
+
+```typescript
+checkPermissions() => Promise<PermissionState>
+```
+
+**Returns:** <code>Promise&lt;<a href="#permissionstate">PermissionState</a>&gt;</code>
+
+--------------------
+
+
+### requestPermissions()
+
+```typescript
+requestPermissions() => Promise<void>
+```
+
+--------------------
+
+
+### Type Aliases
+
+
+#### PermissionState
+
+<code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
 </docgen-api>
